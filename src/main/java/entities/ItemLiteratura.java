@@ -3,17 +3,16 @@ package entities;
 import java.time.LocalDate;
 
 public class ItemLiteratura extends ItemColecao{
-    public enum GeneroLiteratura{
-        FICCAO_CIENTIFICA, ROMANCE, AUTOAJUDA, POLITICA
-    }
     private String autor;
-    private GeneroLiteratura genero;
+    private GeneroLiteratura generoLiteratura;
     private String editora;
 
-    public ItemLiteratura(TipoItem tipo, String id, String nomeItem, Condicao condicao, LocalDate dataAquisicao, String autor, GeneroLiteratura genero, String editora) {
-        super(tipo, id, nomeItem, condicao, dataAquisicao);
+    public ItemLiteratura(TipoItem tipo, String id, String nomeItem, Condicao condicao,
+                          LocalDate dataAquisicao, String autor, GeneroLiteratura genero,
+                          String editora) {
+        super(tipo, id, nomeItem, condicao, dataAquisicao, null);
         this.autor = autor;
-        this.genero = genero;
+        this.generoLiteratura = genero;
         this.editora = editora;
     }
 
@@ -25,12 +24,12 @@ public class ItemLiteratura extends ItemColecao{
         this.autor = autor;
     }
 
-    public GeneroLiteratura getGenero() {
-        return genero;
+    public GeneroLiteratura getGeneroLiteratura() {
+        return generoLiteratura;
     }
 
-    public void setGenero(GeneroLiteratura genero) {
-        this.genero = genero;
+    public void setGeneroLiteratura(GeneroLiteratura genero) {
+        this.generoLiteratura = genero;
     }
 
     public String getEditora() {
@@ -43,6 +42,11 @@ public class ItemLiteratura extends ItemColecao{
 
     @Override
     public String toString(){
-
+        this.toString();
+        return "Informações sobre a obra:\n" +
+                "Gênero: " + getGeneroLiteratura() + "\n" +
+                "Autor: " + getAutor() + "\n" +
+                "Editora: " + getEditora();
     }
+
 }

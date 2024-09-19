@@ -9,17 +9,23 @@ public class ItemColecao {
     private String nomeItem;
     private Condicao condicao;
     private LocalDate dataAquisicao;
+    private LocalDate dataLancamento;
+
 
     public ItemColecao(){
-        this(null, "", "", null, null);
+        this(null, "", "", null, null,
+                null);
     }
 
-    public ItemColecao(TipoItem tipo, String id, String nomeItem, Condicao condicao, LocalDate dataAquisicao) {
+    public ItemColecao(TipoItem tipo, String id, String nomeItem, Condicao condicao,
+                       LocalDate dataAquisicao, LocalDate dataLancamento) {
+
         this.tipo = tipo;
         this.id = id;
         this.nomeItem = nomeItem;
         this.condicao = condicao;
         this.dataAquisicao = dataAquisicao;
+        this.dataLancamento = dataLancamento;
     }
 
     public String getId() {
@@ -75,9 +81,17 @@ public class ItemColecao {
         return Objects.hashCode(id);
     }
 
+    public LocalDate getDataLancamento() {
+        return dataLancamento;
+    }
+
+    public void setDataLancamento(LocalDate dataLancamento) {
+        this.dataLancamento = dataLancamento;
+    }
+
     @Override
-    public String toString() {
-        return "Nome do item: " + getNomeItem() + ", Condição: " + getCondicao() +
-                ", Data da aquisição: " + getDataAquisicao();
+    public String toString(){
+        return getNomeItem() + "( " + getId() + " ) - " + getCondicao() + "\n" +
+                "Data de aquisição: " + getDataAquisicao();
     }
 }

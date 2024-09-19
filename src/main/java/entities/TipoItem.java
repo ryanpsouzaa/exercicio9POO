@@ -1,5 +1,5 @@
 package entities;
 
 public enum TipoItem {
-    LIVRO, FILME, MUSICA, JOGO_ELETRONICO;
+    LIVRO, FILME, MUSICA, JOGO_ELETRONICO, DIVERSOS;
 }
